@@ -1,0 +1,26 @@
+{
+    "name": "trismegiste/yuurei",
+    "description": "Schemaless Object Document Mapper for MongoDB",
+    "type": "library",
+    "keywords": ["dbal", "mongodb", "microframework", "odm", "nosql"],
+    "authors": [
+    {
+        "name": "Trismegiste",
+        "email": "flo@trismegiste.net"
+    }
+    ],
+   "require": {
+        "php": ">=5.4",
+        "ext-mongo": ">=1.3.0"
+    },
+    "require-dev": {
+        "nikic/php-parser": "0.9.x-dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "Trismegiste\\Yuurei": "src"
+        }
+    },
+    "license": "CC-BY-SA-3.0",
+    "version": "0.9"
+}
