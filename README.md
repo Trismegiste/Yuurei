@@ -16,7 +16,7 @@ method [UnitOfWork::createEntity][*1] of Doctrine 2
 Of course, features are also "micro". Don't expect the impossible. Nevertheless
 there are some functionalities you don't find anywhere else.
 
-Plus, this DBAL is fully extendable. My other repo [DokudokiBundle][*4 ]for symfony2
+Plus, this DBAL is fully extendable. My other repo [DokudokiBundle][*4] for symfony2
 adds 3 more mapping systems with minimum coding.
 
 ## How
@@ -78,7 +78,7 @@ does not need any mappping information and objects stored in the database
 are keeping their original structures (without too much noise). So you can
 make complex queries with MongoDb.
 
-See full example in [unit test][*14]
+See full example in [unit test][*11]
 
 ```php
 // simple object
@@ -174,3 +174,4 @@ bundle, this mapping system was named "Invocation".
 [*16]: https://github.com/Trismegiste/Mondrian
 [*12]: https://github.com/Trismegiste/Yuurei/tree/master/tests/Yuurei
 [9]: http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
+[*11]: https://github.com/Trismegiste/Yuurei/tree/master/tests/Yuurei
