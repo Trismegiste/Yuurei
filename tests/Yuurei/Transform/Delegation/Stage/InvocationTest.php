@@ -177,8 +177,19 @@ class InvocationTest extends AbstractStageTest
         $this->assertEquals($flat, $dump);
         $restore = $this->mediator->recursivCreate($dump);
 
+        // SplObjectStorage are not equals since spl_object_hash($obj)
+        // are unique for each Product instances        
         $this->assertEquals($obj->getIterator()->current(), $restore->getIterator()->current());
         $this->assertEquals($obj->getIterator()->getInfo(), $restore->getIterator()->getInfo());
+    }
+
+    public function testArrayObject()
+    {
+        $obj = new Fixtures\AOPersistable([new Fixtures\Product('lightsaber', 20000)]);
+        $dump = $this->mediator->recursivDesegregate($obj);
+        $restore = $this->mediator->recursivCreate($dump);
+
+        $this->assertEquals($obj->getCollection()->getArrayCopy(), $restore->getCollection()->getArrayCopy());
     }
 
 }
