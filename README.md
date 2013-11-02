@@ -1,6 +1,6 @@
 # Yuurei [![Build Status](https://travis-ci.org/Trismegiste/Yuurei.png?branch=master)](https://travis-ci.org/Trismegiste/Yuurei)
 
-![Yo dawg Xzibit](./Resources/doc/img/atomicity.jpg)
+![Yo dawg Xzibit](./doc/img/atomicity.jpg)
 
 Atomicity in [MongoDB][*2] explained by Xzibit
 
@@ -16,7 +16,7 @@ method [UnitOfWork::createEntity][*1] of Doctrine 2
 Of course, features are also "micro". Don't expect the impossible. Nevertheless
 there are some functionalities you don't find anywhere else.
 
-Plus, this DBAL is fully extendable. My other repo DokudokiBundle for symfony2
+Plus, this DBAL is fully extendable. My other repo [DokudokiBundle][*4 ]for symfony2
 adds 3 more mapping systems with minimum coding.
 
 ## How
@@ -42,7 +42,7 @@ With an ODM, you loose both NoSQL and RDBMS features, here are some :
  * No constraint of RDBMS (references and types) because there is none
  * No atomicity : the only atomicity in MongoDB is on one document
 
-In fact ODM is a slow [ORM][*5] without ACID : what is the point of using MongoDB ?
+In fact ODM is a slow [ORM][*5] without [ACID][8] : what is the point of using MongoDB ?
 
 That's why I stop chasing the ["Mythical Object Database"][*3] and start hacking.
 
@@ -150,14 +150,14 @@ Any DateTime are converted into MongoDate and vice versa.
 * No more than 5 methods per class
 * No method longer than 20 NCLOC
 * No static because it is global
-* SRP, OCP, LSP, ISP, DIP at maximum level
+* [SRP, OCP, LSP, ISP, DIP][9] at maximum level
 * coupling at minimum level (checked with [Mondrian][*16] )
 
 ### Is there any lazy loading or proxy classes for DBRef ?
 Fly, you fools
 
 ## What is the meaning of Yuurei ?
-In fact this lib was part of DokudokiBundle and I wanted to keep the best 
+In fact this lib was part of [DokudokiBundle][*4] and I wanted to keep the best 
 from this Bundle in a standalone library. So I kept
 a japanese name for this. Yuurei means ghost or spirit because in the original
 bundle, this mapping system was named "Invocation".
@@ -165,12 +165,12 @@ bundle, this mapping system was named "Invocation".
 [*1]: https://github.com/doctrine/doctrine2/blob/master/lib/Doctrine/ORM/UnitOfWork.php#L2446
 [*2]: http://www.mongodb.org/
 [*3]: http://en.wikipedia.org/wiki/Object_database
-[*4]: https://github.com/sebastianbergmann/phpunit-mock-objects/blob/1.1.1/PHPUnit/Framework/MockObject/Generator.php#L232
+[*4]: https://github.com/Trismegiste/DokudokiBundle
+[6]: http://en.wikipedia.org/wiki/ACID
 [*5]: http://en.wikipedia.org/wiki/Object-relational_mapping
 [*7]: http://www.elasticsearch.org/
+[8]: http://en.wikipedia.org/wiki/ACID
 [*10]: http://en.wikipedia.org/wiki/Keep_it_simple_stupid
-[*12]: https://github.com/Trismegiste/DokudokiBundle/blob/master/Tests/ReadmeExampleTest.php
-[*13]: https://github.com/Trismegiste/DokudokiBundle/blob/master/Tests/ReadmeExampleTest.php#L47
-[*14]: https://github.com/Trismegiste/DokudokiBundle/blob/master/Tests/ReadmeExampleTest.php#L75
-[*15]: https://github.com/Trismegiste/DokudokiBundle/blob/master/Tests/ReadmeExampleTest.php#L91
 [*16]: https://github.com/Trismegiste/Mondrian
+[*12]: https://github.com/Trismegiste/Yuurei/tree/master/tests/Yuurei
+[9]: http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
