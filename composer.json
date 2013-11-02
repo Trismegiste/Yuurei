@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Trismegiste\\Yuurei": "src"
+            "Trismegiste\\Yuurei\\": "src"
         }
     },
     "license": "CC-BY-SA-3.0",

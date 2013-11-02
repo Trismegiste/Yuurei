@@ -25,9 +25,24 @@ class PhpCollectionTest extends MapperTestTemplate
         $fixture = array('answer' => 42, 'word' => 'bazinga');
         $obj = new \ArrayObject($fixture);
         $dump[MapObject::FQCN_KEY] = 'ArrayObject';
-        $dump['content'] = $fixture;
+        $dump[PhpCollection::CONTENT_KEY] = $fixture;
 
-        return array(array($dump, $obj));
+        $spl = new \SplObjectStorage();
+        $key = new \tests\Yuurei\Fixtures\Simple();
+        $spl[$key] = 123;
+        $flat = [
+            MapObject::FQCN_KEY => 'SplObjectStorage',
+            PhpCollection::CONTENT_KEY => [
+                PhpCollection::SPL_KEY => [
+                    // not the full mapping, only the job of PhpCollection
+                    // To map entirely the SplObjectStorage, we need a MapObject
+                    $key
+                ],
+                PhpCollection::SPL_VALUE => [123]
+            ]
+        ];
+
+        return [[$dump, $obj], [$flat, $spl]];
     }
 
     public function getDataToDb()
@@ -35,17 +50,32 @@ class PhpCollectionTest extends MapperTestTemplate
         $fixture = array('answer' => 42, 'word' => 'bazinga');
         $obj = new \ArrayObject($fixture);
         $dump[MapObject::FQCN_KEY] = 'ArrayObject';
-        $dump['content'] = $fixture;
+        $dump[PhpCollection::CONTENT_KEY] = $fixture;
 
-        return array(array($obj, $dump));
+        $spl = new \SplObjectStorage();
+        $key = new \tests\Yuurei\Fixtures\Simple();
+        $spl[$key] = 123;
+        $flat = [
+            MapObject::FQCN_KEY => 'SplObjectStorage',
+            PhpCollection::CONTENT_KEY => [
+                PhpCollection::SPL_KEY => [
+                    // not the full mapping, only the job of PhpCollection
+                    // To map entirely the SplObjectStorage, we need a MapObject
+                    $key
+                ],
+                PhpCollection::SPL_VALUE => [123]
+            ]
+        ];
+
+        return [[$obj, $dump], [$spl, $flat]];
     }
 
     public function getResponsibleDataToDb()
     {
-        return array(
-            array(new \ArrayObject()),
-            array(new \SplObjectStorage())
-        );
+        return [
+            [new \ArrayObject()],
+            [new \SplObjectStorage()]
+        ];
     }
 
     public function getResponsibleDataFromDb()

@@ -7,13 +7,12 @@
 namespace tests\Yuurei\Transform\Delegation\Stage;
 
 use Trismegiste\Yuurei\Transform\Delegation\Stage\Invocation;
-use tests\Yuurei\Fixtures;
 use Trismegiste\Yuurei\Transform\Mediator\Colleague\MapObject;
+use tests\Yuurei\Fixtures;
+use Trismegiste\Yuurei\Transform\Mediator\Colleague\PhpCollection;
 
 /**
  * test for Mediator created by Invocation builder
- *
- * @author flo
  */
 class InvocationTest extends AbstractStageTest
 {
@@ -60,26 +59,7 @@ class InvocationTest extends AbstractStageTest
             )
         );
 
-        $obj3 = new Fixtures\CartPlus();
-        $obj3->addItem(3, new Fixtures\Product('EF85L', 1999));
-        $dump3 = [
-            MapObject::FQCN_KEY => $fixture . '\CartPlus',
-            'row' => [
-                MapObject::FQCN_KEY => 'SplObjectStorage',
-                'content' => [
-                    'key' => [
-                        [
-                            MapObject::FQCN_KEY => $fixture . '\Product',
-                            'title' => 'EF85L',
-                            'price' => 1999
-                        ]
-                    ],
-                    'value' => [3]
-                ]
-            ]
-        ];
-
-        return array(array($obj, $dump), array($obj2, $dump2), [$obj3, $dump3]);
+        return array(array($obj, $dump), array($obj2, $dump2));
     }
 
     public function getDataToDb()
@@ -170,6 +150,35 @@ class InvocationTest extends AbstractStageTest
         $this->assertEquals(42, $dump['answer']);
         $restore = $this->mediator->recursivCreate($dump);
         $this->assertEquals(range(1, 10), $restore->getTransient());
+    }
+
+    public function testSplObjectStorage()
+    {
+        $obj = new Fixtures\CartPlus();
+        $obj->addItem(3, new Fixtures\Product('EF85L', 1999));
+        $flat = [
+            MapObject::FQCN_KEY => get_class($obj),
+            'row' => [
+                MapObject::FQCN_KEY => 'SplObjectStorage',
+                PhpCollection::CONTENT_KEY => [
+                    PhpCollection::SPL_KEY => [
+                        [
+                            MapObject::FQCN_KEY => 'tests\Yuurei\Fixtures\Product',
+                            'title' => 'EF85L',
+                            'price' => 1999
+                        ]
+                    ],
+                    PhpCollection::SPL_VALUE => [3]
+                ]
+            ]
+        ];
+
+        $dump = $this->mediator->recursivDesegregate($obj);
+        $this->assertEquals($flat, $dump);
+        $restore = $this->mediator->recursivCreate($dump);
+
+        $this->assertEquals($obj->getIterator()->current(), $restore->getIterator()->current());
+        $this->assertEquals($obj->getIterator()->getInfo(), $restore->getIterator()->getInfo());
     }
 
 }

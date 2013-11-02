@@ -6,7 +6,7 @@
 
 namespace tests\Yuurei\Fixtures;
 
-class CartPlus
+class CartPlus implements \IteratorAggregate
 {
 
     protected $row;
@@ -19,6 +19,16 @@ class CartPlus
     public function addItem($qt, $pro)
     {
         $this->row[$pro] = $qt;
+    }
+
+    public function getIterator()
+    {
+        return $this->row;
+    }
+
+    public function getQty($pro)
+    {
+        return $this->row[$pro];
     }
 
 }

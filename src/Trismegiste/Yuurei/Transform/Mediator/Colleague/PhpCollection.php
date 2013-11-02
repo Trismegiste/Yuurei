@@ -16,6 +16,10 @@ use Trismegiste\Yuurei\Transform\Mediator\Colleague\MapObject;
 class PhpCollection extends AbstractMapper
 {
 
+    const CONTENT_KEY = 'content';
+    const SPL_KEY = 'key';
+    const SPL_VALUE = 'value';
+
     protected $collectionType = array('ArrayObject', 'SplObjectStorage');
 
     /**
@@ -46,15 +50,15 @@ class PhpCollection extends AbstractMapper
         switch ($var[MapObject::FQCN_KEY]) {
             case 'ArrayObject':
                 $collection = new \ArrayObject();
-                foreach ($var['content'] as $key => $val) {
+                foreach ($var[self::CONTENT_KEY] as $key => $val) {
                     $collection[$key] = $this->mediator->recursivCreate($val);
                 }
                 break;
 
             case 'SplObjectStorage' :
                 $collection = new \SplObjectStorage();
-                foreach ($var['content']['key'] as $idx => $key) {
-                    $val = $this->mediator->recursivCreate($var['content']['value'][$idx]);
+                foreach ($var[self::CONTENT_KEY][self::SPL_KEY] as $idx => $key) {
+                    $val = $this->mediator->recursivCreate($var[self::CONTENT_KEY][self::SPL_VALUE][$idx]);
                     $objKey = $this->mediator->recursivCreate($key);
                     $collection[$objKey] = $val;
                 }
@@ -73,11 +77,11 @@ class PhpCollection extends AbstractMapper
 
         switch (get_class($var)) {
             case 'ArrayObject':
-                $struc['content'] = $this->dumpArray($var);
+                $struc[self::CONTENT_KEY] = $this->dumpArray($var);
                 break;
 
             case 'SplObjectStorage' :
-                $struc['content'] = $this->dumpSplStorage($var);
+                $struc[self::CONTENT_KEY] = $this->dumpSplStorage($var);
                 break;
         }
 
@@ -105,7 +109,7 @@ class PhpCollection extends AbstractMapper
             $contentVal[$idx] = $this->mediator->recursivDesegregate($arr->getInfo());
         }
 
-        return array('key' => $contentKey, 'value' => $contentVal);
+        return array(self::SPL_KEY => $contentKey, self::SPL_VALUE => $contentVal);
     }
 
 }

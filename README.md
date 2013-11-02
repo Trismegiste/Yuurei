@@ -6,15 +6,18 @@ Atomicity in [MongoDB][*2] explained by Xzibit
 
 ## What
 
-It's a minimalistic database layer with automatic mapping.
+It's a micro database layer with automatic mapping.
 It is intended for **advanced users** of [MongoDB][*2]
 who know and understand the growth of a model on a schemaless database.
 
-When I mean minimalistic, I mean all the NCLOC are shorter than the infamous
+When I mean "micro", I mean the sum of NCLOC is less than the infamous
 method [UnitOfWork::createEntity][*1] of Doctrine 2
 
-Of course, features are also minimalistic. Don't expect the impossible. Nevertheless
+Of course, features are also "micro". Don't expect the impossible. Nevertheless
 there are some functionalities you don't find anywhere else.
+
+Plus, this DBAL is fully extendable. My other repo DokudokiBundle for symfony2
+adds 3 more mapping systems with minimum coding.
 
 ## How
 
@@ -65,11 +68,15 @@ See the [PHPUnit tests][*12] for examples.
 
 ## It's like serialization
 
-You know PHP can store and restore any objects in session with the serialization
+You know PHP can save and restore any object in session with the serialization
 and it doesn't need any mapping information, annotations nor repositories. 
-This was my paradigm when I started this library. Why can't an ORM/ODM
+This was my paradigm when I started this library. 
+
+Why can't an ORM/ODM
 do the same ? Well, of course I needed a NoSQL database. But this dbal/odm-like
-does not need any mappping information.
+does not need any mappping information and objects stored in the database
+are keeping their original structures (without too much noise). So you can
+make complex queries with MongoDb.
 
 See full example in [unit test][*14]
 
@@ -89,17 +96,13 @@ $this->assertEquals(2000, $dump['price']);
 ```
 
 ## About MDE
+
 With recent concepts of NoSQL, SOA and HMVC, I believe MDE is somewhat
 past-history, not always but very often. In fact it's not the MDE itself
 but a very common anti-pattern : the "Database Driven Development" where all
 source code come from the database schema. Combined with CRUD generators, it
 leads to anemic model, dumb constructors and useless setters/getters without
-business signifiance.
-
-With this antipattern, the first task is to design and
-code the model. It is difficult to parallelize this part, it's blocking everything
-else to come. Because of constraints of RDBMS, it drives to over-engineering
-(for my experience) and meanwhile, the customer waits and sees nothing.
+business meaning.
 
 ## About performance
 
@@ -153,11 +156,11 @@ Any DateTime are converted into MongoDate and vice versa.
 ### Is there any lazy loading or proxy classes for DBRef ?
 Fly, you fools
 
-## Why this silly name ?
-Well, I'm not good at finding names. In fact this lib was part of DokudokiBundle
-but I wanted to keep the best of this Bundle in a standalone library. So I kept
+## What is the meaning of Yuurei ?
+In fact this lib was part of DokudokiBundle and I wanted to keep the best 
+from this Bundle in a standalone library. So I kept
 a japanese name for this. Yuurei means ghost or spirit because in the original
-bundle, this part was named "Invocation".
+bundle, this mapping system was named "Invocation".
 
 [*1]: https://github.com/doctrine/doctrine2/blob/master/lib/Doctrine/ORM/UnitOfWork.php#L2446
 [*2]: http://www.mongodb.org/
