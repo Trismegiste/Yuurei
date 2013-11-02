@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Dokudokibundle
+ * Yuurei
  */
 
 namespace Trismegiste\Yuurei\Persistence;

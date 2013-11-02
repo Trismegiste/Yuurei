@@ -1,15 +1,13 @@
 <?php
 
 /*
- * Persistence
+ * Yuurei
  */
 
 namespace Trismegiste\Yuurei\Persistence;
 
 /**
  * A concrete connector against MongoDB. It's a wrapper to encapsulate config
- *
- * @author flo
  */
 class Connector
 {

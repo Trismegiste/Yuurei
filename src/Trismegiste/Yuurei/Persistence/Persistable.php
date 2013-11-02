@@ -1,15 +1,13 @@
 <?php
 
 /*
- * Dokudokibundle
+ * Yuurei
  */
 
 namespace Trismegiste\Yuurei\Persistence;
 
 /**
- * Means this object has a primary key
- * 
- * @author flo
+ * A contract meaning this object has a primary key
  */
 interface Persistable
 {

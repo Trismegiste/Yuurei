@@ -1,15 +1,13 @@
 <?php
 
 /*
- * Dokudokibundle
+ * Yuurei
  */
 
 namespace Trismegiste\Yuurei\Transform\Mediator;
 
 /**
- * A contract for a mapper
- *
- * @author florent
+ * A contract for a mapper database <-> memory
  */
 interface Mapping
 {

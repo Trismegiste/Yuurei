@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Dokudokibundle
+ * Yuurei
  */
 
 namespace Trismegiste\Yuurei\Facade;
@@ -11,8 +11,6 @@ use Trismegiste\Yuurei\Transform\Mediator\RecursiveMapper;
 /**
  * Provider is a concrete & highly coupled facade for this bundle
  * It creates Repository 
- *
- * @author flo
  */
 class Provider extends AbstractProvider
 {

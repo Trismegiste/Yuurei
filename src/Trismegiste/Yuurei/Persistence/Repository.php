@@ -6,8 +6,6 @@ use Trismegiste\Yuurei\Transform\TransformerInterface;
 
 /**
  * Repository of mongo document
- *
- * @author flo
  */
 class Repository implements RepositoryInterface
 {

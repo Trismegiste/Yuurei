@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Dokudokibundle
+ * Yuurei
  */
 
 namespace Trismegiste\Yuurei\Facade;
@@ -9,14 +9,11 @@ namespace Trismegiste\Yuurei\Facade;
 use Trismegiste\Yuurei\Transform\Mediator\RecursiveMapper;
 use Trismegiste\Yuurei\Persistence\Repository;
 use Trismegiste\Yuurei\Transform\Delegation\MappingBuilder;
-use Trismegiste\Yuurei\Persistence\Logger;
 
 /**
  * Design Pattern: Template Method
  * AbstractProvider is an implementation of the factory method
  * with injection of required service
- *
- * @author flo
  */
 abstract class AbstractProvider implements ProviderInterface
 {

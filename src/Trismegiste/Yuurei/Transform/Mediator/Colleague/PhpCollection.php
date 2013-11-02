@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Dokudokibundle
+ * Yuurei
  */
 
 namespace Trismegiste\Yuurei\Transform\Mediator\Colleague;
@@ -11,7 +11,7 @@ use Trismegiste\Yuurei\Transform\Mediator\Colleague\MapObject;
 
 /**
  * PhpCollection maps php collections internal classes
- * Like ArrayObject and SplObjecStorage
+ * like ArrayObject and SplObjecStorage
  */
 class PhpCollection extends AbstractMapper
 {

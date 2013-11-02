@@ -7,9 +7,7 @@
 namespace Trismegiste\Yuurei\Persistence;
 
 /**
- * A template for a repository
- * 
- * @author flo
+ * A contract for a repository
  */
 interface RepositoryInterface
 {

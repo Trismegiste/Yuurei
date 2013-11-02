@@ -21,8 +21,6 @@ use Trismegiste\Yuurei\Transform\Mediator\TypeRegistry;
  * usefull for other apps, you don't need to repeat the alias map, only the
  * model classes are needed.
  * Fail when a class not exists.
- *
- * @author flo
  */
 class Invocation extends AbstractStage
 {

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Dokudokibundle
+ * Yuurei
  */
 
 namespace Trismegiste\Yuurei\Facade;
@@ -11,8 +11,6 @@ use Trismegiste\Yuurei\Transform\Delegation\MappingBuilder;
 /**
  * Design Pattern: Factory Method
  * ProviderInterface is a contract for providing repository
- * 
- * @author flo
  */
 interface ProviderInterface
 {

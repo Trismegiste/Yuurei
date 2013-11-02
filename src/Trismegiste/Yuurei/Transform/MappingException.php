@@ -1,14 +1,13 @@
 <?php
 
 /*
- * Dokudokibundle
+ * Yuurei
  */
 
 namespace Trismegiste\Yuurei\Transform;
 
 /**
  * MappingException is an exception when mapping fails
- *
  */
 class MappingException extends \RuntimeException
 {

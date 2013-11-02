@@ -9,14 +9,12 @@ namespace Trismegiste\Yuurei\Utils;
 /**
  * InjectionClass can dynamically
  * build object and properties
- *
- * @author flo
  */
 class InjectionClass extends \ReflectionClass
 {
 
     /**
-     * Set a property in an object, even it does exist in the class
+     * Set a property into an object, even it does not exist in the class
      * 
      * @param object $obj
      * @param string $key
