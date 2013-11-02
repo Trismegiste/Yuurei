@@ -101,7 +101,7 @@ With recent concepts of NoSQL, SOA and HMVC, I believe MDE is somewhat
 past-history, not always but very often. In fact it's not the MDE itself
 but a very common anti-pattern : the "Database Driven Development" where all
 source code come from the database schema. Combined with CRUD generators, it
-leads to anemic model, dumb constructors and useless setters/getters without
+leads to [anemic model][*10], dumb constructors and useless setters/getters without
 business meaning.
 
 ## About performance
@@ -170,7 +170,7 @@ bundle, this mapping system was named "Invocation".
 [*5]: http://en.wikipedia.org/wiki/Object-relational_mapping
 [*7]: http://www.elasticsearch.org/
 [8]: http://en.wikipedia.org/wiki/ACID
-[*10]: http://en.wikipedia.org/wiki/Keep_it_simple_stupid
+[*10]: http://en.wikipedia.org/wiki/Anemic_domain_model
 [*16]: https://github.com/Trismegiste/Mondrian
 [*12]: https://github.com/Trismegiste/Yuurei/tree/master/tests/Yuurei
 [9]: http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
