@@ -36,8 +36,8 @@ class DateObject extends AbstractMapper
             throw new \LogicException('Cannot transform MongoDate because reversed will be a DateTime');
         }
         $tmp = clone $obj;
-        $tmp->setTimezone(new \DateTimeZone('UTC')); // @todo hardcoding is evil
-        return new \MongoDate($tmp->getTimestamp());
+        //$tmp->setTimezone(new \DateTimeZone('UTC')); // @todo hardcoding is evil
+        return new \MongoDate($obj->getTimestamp());
     }
 
     /**
