@@ -1,4 +1,4 @@
-# Yuurei [![Build Status](https://travis-ci.org/Trismegiste/Yuurei.png?branch=master)](https://travis-ci.org/Trismegiste/Yuurei)
+# Yuurei (幽霊) [![Build Status](https://travis-ci.org/Trismegiste/Yuurei.png?branch=master)](https://travis-ci.org/Trismegiste/Yuurei)
 
 ![Yo dawg Xzibit](./doc/img/atomicity.jpg)
 
@@ -159,7 +159,7 @@ Fly, you fools
 ## What is the meaning of Yuurei ?
 In fact this lib was part of [DokudokiBundle][*4] and I wanted to keep the best 
 from this Bundle in a standalone library. So I kept
-a japanese name for this. Yuurei means ghost or spirit because in the original
+a japanese name for this. 幽霊 means ghost or spirit because in the original
 bundle, this mapping system was named "Invocation".
 
 [*1]: https://github.com/doctrine/doctrine2/blob/master/lib/Doctrine/ORM/UnitOfWork.php#L2446
@@ -172,6 +172,6 @@ bundle, this mapping system was named "Invocation".
 [8]: http://en.wikipedia.org/wiki/ACID
 [9]: http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
 [*10]: http://en.wikipedia.org/wiki/Anemic_domain_model
-[*11]: https://github.com/Trismegiste/Yuurei/tree/master/tests/Yuurei/DumperExampleTest.php#28
-[*12]: https://github.com/Trismegiste/Yuurei/tree/master/tests/Yuurei/ReadmeExampleTest.php#28
+[*11]: https://github.com/Trismegiste/Yuurei/tree/master/tests/Yuurei/DumperExampleTest.php#L28
+[*12]: https://github.com/Trismegiste/Yuurei/tree/master/tests/Yuurei/ReadmeExampleTest.php#L28
 [*16]: https://github.com/Trismegiste/Mondrian
