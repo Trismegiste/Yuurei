@@ -58,4 +58,15 @@ class MapObjectTest extends MapperTestTemplate
         return array(array(null), array(array('prop' => 'hello')), array(new \MongoDate()));
     }
 
+    /**
+     * @expectedException DomainException
+     * @expectedExceptionMessage does not exist
+     */
+    public function testNotFound()
+    {
+        $mapper = $this->createMapper();
+        $dump = array(MapObject::FQCN_KEY => 'NotFound', 'answer' => 42);
+        $mapper->mapFromDb($dump);
+    }
+
 }
