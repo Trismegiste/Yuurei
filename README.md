@@ -64,7 +64,7 @@ and you store it. It's like serialization but in MongoDB.
 All non static properties are stored in a way you can query easily with the
 powerfull (but very strange I admit) language of MongoDB.
 
-See the [PHPUnit tests][*12] for examples.
+See the [PHPUnit tests][*11] for examples of the serialization process.
 
 ## It's like serialization
 
@@ -78,7 +78,7 @@ does not need any mappping information and objects stored in the database
 are keeping their original structures (without too much noise). So you can
 make complex queries with MongoDb.
 
-See full example in [unit test][*11]
+See full example in [unit test][*12]
 
 ```php
 // simple object
@@ -170,8 +170,8 @@ bundle, this mapping system was named "Invocation".
 [*5]: http://en.wikipedia.org/wiki/Object-relational_mapping
 [*7]: http://www.elasticsearch.org/
 [8]: http://en.wikipedia.org/wiki/ACID
-[*10]: http://en.wikipedia.org/wiki/Anemic_domain_model
-[*16]: https://github.com/Trismegiste/Mondrian
-[*12]: https://github.com/Trismegiste/Yuurei/tree/master/tests/Yuurei
 [9]: http://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
-[*11]: https://github.com/Trismegiste/Yuurei/tree/master/tests/Yuurei
+[*10]: http://en.wikipedia.org/wiki/Anemic_domain_model
+[*11]: https://github.com/Trismegiste/Yuurei/tree/master/tests/Yuurei/DumperExampleTest.php#28
+[*12]: https://github.com/Trismegiste/Yuurei/tree/master/tests/Yuurei/ReadmeExampleTest.php#28
+[*16]: https://github.com/Trismegiste/Mondrian

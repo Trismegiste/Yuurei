@@ -9,9 +9,7 @@ namespace Trismegiste\Yuurei\Transform;
 use Trismegiste\Yuurei\Transform\Mediator\RecursiveMapper;
 
 /**
- * Factory is a transformer to move from object to array and vice versa
- *
- * @author florent
+ * Factory is a transformer to translate object to array and vice versa
  */
 class Transformer implements TransformerInterface
 {
