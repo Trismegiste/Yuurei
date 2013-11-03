@@ -9,9 +9,7 @@ namespace Trismegiste\Yuurei\Transform\Mediator\Colleague;
 use Trismegiste\Yuurei\Transform\Mediator\AbstractMapper;
 
 /**
- * DateObject is a transcaster \MongoDate <=> DateTime
- *
- * @author florent
+ * DateObject is a transformer \MongoDate <=> DateTime
  */
 class DateObject extends AbstractMapper
 {
@@ -32,10 +30,13 @@ class DateObject extends AbstractMapper
     public function mapToDb($obj)
     {
         if (get_class($obj) == 'MongoDate') {
+            // since this mapper is not responsible for MongoDate mapping
+            // this case never happen. Anyway, I prefer to check in case
+            // of future regression
             throw new \LogicException('Cannot transform MongoDate because reversed will be a DateTime');
         }
         $tmp = clone $obj;
-        $tmp->setTimezone(new \DateTimeZone('UTC'));
+        $tmp->setTimezone(new \DateTimeZone('UTC')); // @todo hardcoding is evil
         return new \MongoDate($tmp->getTimestamp());
     }
 

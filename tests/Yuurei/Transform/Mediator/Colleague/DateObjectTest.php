@@ -54,11 +54,16 @@ class DateObjectTest extends MapperTestTemplate
     }
 
     /**
+     * Logically this case never happen, anyway it's a double check for futher
+     * evolution which could break this mapper behavior
+     * 
      * @expectedException LogicException
      */
     public function testMapMongoDateToDb()
     {
-        $dump = $this->mapper->mapToDb(new \MongoDate());
+        $date = new \MongoDate();
+        $this->assertFalse($this->mapper->isResponsibleToDb($date));
+        $dump = $this->mapper->mapToDb($date);
     }
 
 }
