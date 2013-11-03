@@ -10,9 +10,8 @@ use tests\Yuurei\Persistence\ConnectorTest;
 use Trismegiste\Yuurei\Facade\Provider;
 
 /**
- * FunWithParser
- *
- * @author florent
+ * FunWithParser tests the persistence capabilities of Yuurei by storing
+ * a php source code parsed AST with the PHPParser library.
  */
 class FunWithParserTest extends \PHPUnit_Framework_TestCase
 {

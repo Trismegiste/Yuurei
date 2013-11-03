@@ -25,9 +25,12 @@ class DumperExampleTest extends \PHPUnit_Framework_TestCase
         $this->transform = new Transformer($mappingChain);
     }
 
+    /**
+     * Transforms a complex object with non-empty constructor to
+     * a recursive array
+     */
     public function testSerialize()
     {
-        // saving an object :
         $product = new LightSaber('red');
         $product->setOwner(new Owner('vader'));
         $dump = $this->transform->desegregate($product);
@@ -41,6 +44,10 @@ class DumperExampleTest extends \PHPUnit_Framework_TestCase
                 ], $dump);
     }
 
+    /**
+     * Creates a complex object with non-empty constructor from
+     * a recursive array
+     */
     public function testUnserialize()
     {
         $dump = [
