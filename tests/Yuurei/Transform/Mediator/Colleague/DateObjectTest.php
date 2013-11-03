@@ -19,8 +19,7 @@ class DateObjectTest extends MapperTestTemplate
 
     protected function createMapper()
     {
-        $mediator = $this->getMockForAbstractClass('Trismegiste\Yuurei\Transform\Mediator\AbstractMediator');
-        return new DateObject($mediator);
+        return new DateObject($this->createMediatorMockup());
     }
 
     public function getDataFromDb()
