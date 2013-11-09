@@ -24,9 +24,7 @@ adds 3 more mapping systems with minimum coding.
 Use Composer like any other PHP package :
 
 ```
-    "require": {
-        "trismegiste/yuurei": "dev-master"
-    },
+ $ composer.phar require trismegiste/yuurei dev-master
 ```
 
 ## Why
@@ -125,6 +123,12 @@ It is a class stored in the collection, which contains the MongoId in the key '_
 All other agregated objects in this class don't need to implement Persistable, they are
 recursively stored.
 
+### What are the constraints ?
+This library cannot save & restore private properties coming from a parent class. 
+Private properties in persisted classes are ok but they will not be seen by subclasses
+and therefore cannot be persisted if you save these subclasses in the database. 
+This is a big limitations so be careful when you use the keyword 'private'.
+
 ### How can I remove some transient properties ?
 You can't. But you can have a transient class with the interface Skippable.
 Use Decorator pattern or a State Pattern. Your model can do that.
@@ -139,12 +143,13 @@ Use the MongoCollection, you can't be more efficient than this low level layer
 Use a MongoBinData in your model, it is stored as is
 
 ### Can I use something else than MongoId for primary key ?
-No
+No. Of course MongoDB allow you to use something else but it is not a very
+good idea for the most case.
 
 ### What about MongoDate ?
 Any DateTime are converted into MongoDate and vice versa.
 
-### Is there any other constraints you have used ?
+### What are the guidances you have used for this lib ?
 * No mandatory inheritance for model except one interface (for DDD concern)
 * Minimum number of switch because it is hidden inheritance
 * No more than 5 methods per class
