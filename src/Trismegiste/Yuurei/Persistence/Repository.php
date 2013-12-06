@@ -69,4 +69,23 @@ class Repository implements RepositoryInterface
         return $obj;
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function find(array $query = array(), array $fields = array())
+    {
+        return $this->collection->find($query, $fields);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function findOne(array $query = array(), array $fields = array())
+    {
+        $found = $this->collection->findOne($query, $fields);
+        if (is_array($found)) {
+            return $this->createFromDb($found);
+        }
+    }
+
 }

@@ -42,4 +42,24 @@ interface RepositoryInterface
      * 
      */
     function createFromDb(array $struc);
+
+    /**
+     * Makes a query against current collection
+     * 
+     * @param array $query mongodb query
+     * @param array $fields fields to return
+     * 
+     * @return MongoDbCursor
+     */
+    public function find(array $query = [], array $fields = []);
+
+    /**
+     * Makes a query against current collection and returns the first
+     * 
+     * @param array $query mongodb query
+     * @param array $fields fields to return
+     * 
+     * @return object|null
+     */
+    public function findOne(array $query = [], array $fields = []);
 }
