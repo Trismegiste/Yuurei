@@ -29,9 +29,9 @@ abstract class Decorator implements RepositoryInterface
         return $this->decorated->persist($doc);
     }
 
-    public function find(array $query = array(), array $fields = array())
+    public function find(array $query = array())
     {
-        return $this->decorated->find($query, $fields);
+        return $this->decorated->find($query);
     }
 
     public function findByPk($id)
@@ -39,9 +39,14 @@ abstract class Decorator implements RepositoryInterface
         return $this->decorated->findByPk($id);
     }
 
-    public function findOne(array $query = array(), array $fields = array())
+    public function findOne(array $query = array())
     {
-        return $this->decorated->findOne($query, $fields);
+        return $this->decorated->findOne($query);
+    }
+
+    public function getCursor(array $query = array(), array $fields = array())
+    {
+        return $this->decorated->getCursor($query, $fields);
     }
 
 }

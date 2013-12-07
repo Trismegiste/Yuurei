@@ -49,17 +49,25 @@ interface RepositoryInterface
      * @param array $query mongodb query
      * @param array $fields fields to return
      * 
-     * @return MongoDbCursor
+     * @return MongoDbCursor internal mongodb cursor
      */
-    public function find(array $query = [], array $fields = []);
+    public function getCursor(array $query = [], array $fields = []);
 
     /**
-     * Makes a query against current collection and returns the first
+     * Makes a query against current repository and returns an iterator on objects
      * 
      * @param array $query mongodb query
-     * @param array $fields fields to return
+     * 
+     * @return CollectionIterator
+     */
+    public function find(array $query = []);
+
+    /**
+     * Makes a query against current repository and returns the first object
+     * 
+     * @param array $query mongodb query
      * 
      * @return object|null
      */
-    public function findOne(array $query = [], array $fields = []);
+    public function findOne(array $query = []);
 }

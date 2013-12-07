@@ -72,7 +72,7 @@ class Repository implements RepositoryInterface
     /**
      * {@inheritDoc}
      */
-    public function find(array $query = array(), array $fields = array())
+    public function getCursor(array $query = array(), array $fields = array())
     {
         return $this->collection->find($query, $fields);
     }
@@ -80,12 +80,20 @@ class Repository implements RepositoryInterface
     /**
      * {@inheritDoc}
      */
-    public function findOne(array $query = array(), array $fields = array())
+    public function findOne(array $query = array())
     {
-        $found = $this->collection->findOne($query, $fields);
+        $found = $this->collection->findOne($query);
         if (is_array($found)) {
             return $this->createFromDb($found);
         }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function find(array $query = array())
+    {
+        return new CollectionIterator($this->collection->find($query), $this);
     }
 
 }
