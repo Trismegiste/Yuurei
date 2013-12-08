@@ -52,7 +52,7 @@ class Repository implements RepositoryInterface
     /**
      * {@inheritDoc}
      */
-    public function createFromDb(array $struc)
+    final public function createFromDb(array $struc)
     {
         if (!isset($struc['_id'])) {
             throw new \InvalidArgumentException("The database entry does not have a primary key");
@@ -72,7 +72,7 @@ class Repository implements RepositoryInterface
     /**
      * {@inheritDoc}
      */
-    public function getCursor(array $query = array(), array $fields = array())
+    final public function getCursor(array $query = array(), array $fields = array())
     {
         return $this->collection->find($query, $fields);
     }

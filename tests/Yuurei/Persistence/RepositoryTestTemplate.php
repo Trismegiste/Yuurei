@@ -8,6 +8,7 @@ namespace tests\Yuurei\Persistence;
 
 use Trismegiste\Yuurei\Persistence\Repository;
 use Trismegiste\Yuurei\Facade\Provider;
+use Trismegiste\Yuurei\Persistence\Persistable;
 
 /**
  * Test Template for repository
@@ -46,7 +47,6 @@ abstract class RepositoryTestTemplate extends \PHPUnit_Framework_TestCase
     abstract protected function getSimpleObject();
 
     /**
-     *
      * @depends testInit
      */
     public function testCreation()
@@ -130,6 +130,40 @@ abstract class RepositoryTestTemplate extends \PHPUnit_Framework_TestCase
         // restore
         $found = $this->repo->findByPk($obj->getId());
         $this->assertEquals($obj, $found);
+    }
+
+    public function testFindOne()
+    {
+        $restore = $this->repo->findOne($this->getQueryForComplexObject());
+        $this->assertNotNull($restore);
+    }
+
+    public function testNotFindOne()
+    {
+        $restore = $this->repo->findOne(['-fqcn' => 'undefined']);
+        $this->assertNull($restore);
+    }
+
+    /**
+     * @dataProvider getComplexObject
+     */
+    public function testCursor($doc)
+    {
+        $this->repo->persist($doc);
+        $cursor = $this->repo->getCursor($this->getQueryForComplexObject());
+        $this->assertCount(2, $cursor);
+    }
+
+    abstract protected function getQueryForComplexObject();
+
+    public function testCollectionIterator()
+    {
+        $cursor = $this->repo->find($this->getQueryForComplexObject());
+
+        $this->assertCount(2, $cursor);
+        foreach ($cursor as $dontcare => $obj) {
+            $this->assertTrue($obj instanceof Persistable);
+        }
     }
 
     /**

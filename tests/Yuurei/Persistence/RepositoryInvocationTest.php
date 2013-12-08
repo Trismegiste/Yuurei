@@ -77,4 +77,9 @@ class RepositoryInvocationTest extends RepositoryTestTemplate
         $this->repo->persist($obj);
     }
 
+    protected function getQueryForComplexObject()
+    {
+        return ['objVar.answer' => 'eureka'];
+    }
+
 }
