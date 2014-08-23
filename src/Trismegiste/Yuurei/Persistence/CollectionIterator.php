@@ -46,4 +46,25 @@ class CollectionIterator implements \Iterator
         return $this->cursor->valid();
     }
 
+    public function limit($n)
+    {
+        $this->cursor->limit($n);
+
+        return $this;
+    }
+
+    public function sort($fields)
+    {
+        $this->cursor->sort($fields);
+
+        return $this;
+    }
+
+    public function offset($delta)
+    {
+        $this->cursor->skip($delta);
+
+        return $this;
+    }
+
 }
