@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Yuurei
+ */
+
 namespace Trismegiste\Yuurei\Persistence;
 
 use Trismegiste\Yuurei\Transform\TransformerInterface;
@@ -33,6 +37,30 @@ class Repository implements RepositoryInterface
         }
         $this->collection->save($struc);
         $doc->setId($struc['_id']);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function batchPersist(array $batch)
+    {
+        $insert = [];
+        foreach ($batch as $idx => $doc) {
+            $struc = $this->factory->desegregate($doc);
+            if (array_key_exists('id', $struc)) {
+                unset($struc['id']);
+            }
+            if (!is_null($doc->getId())) {
+                $struc['_id'] = $doc->getId();
+            }
+            $insert[$idx] = $struc;
+        }
+
+        $this->collection->batchInsert($insert);
+
+        foreach ($batch as $idx => $doc) {
+            $doc->setId($insert[$idx]['_id']);
+        }
     }
 
     /**

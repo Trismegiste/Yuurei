@@ -1,7 +1,7 @@
 <?php
 
 /*
- * GraphRpg
+ * Yuurei
  */
 
 namespace Trismegiste\Yuurei\Persistence;
@@ -26,7 +26,7 @@ abstract class Decorator implements RepositoryInterface
 
     public function persist(Persistable $doc)
     {
-        return $this->decorated->persist($doc);
+        $this->decorated->persist($doc);
     }
 
     public function find(array $query = array())
@@ -47,6 +47,11 @@ abstract class Decorator implements RepositoryInterface
     public function getCursor(array $query = array(), array $fields = array())
     {
         return $this->decorated->getCursor($query, $fields);
+    }
+
+    public function batchPersist(array $batch)
+    {
+        $this->decorated->batchPersist($batch);
     }
 
 }
