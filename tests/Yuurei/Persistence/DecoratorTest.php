@@ -34,4 +34,9 @@ class DecoratorTest extends \PHPUnit_Framework_TestCase
         $this->sut->persist($this->getMock('Trismegiste\Yuurei\Persistence\Persistable'));
     }
 
+    public function testBatchPersist()
+    {
+        $this->sut->batchPersist([]);
+    }
+
 }

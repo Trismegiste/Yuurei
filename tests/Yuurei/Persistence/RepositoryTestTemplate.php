@@ -207,4 +207,36 @@ abstract class RepositoryTestTemplate extends \PHPUnit_Framework_TestCase
         $repo->createFromDb(array());
     }
 
+    /**
+     * @depends testInit
+     */
+    public function testBatchInsert()
+    {
+        $batch = [
+            $this->getSimpleObject(),
+            $this->getSimpleObject()
+        ];
+
+        $this->repo->batchPersist($batch);
+        foreach ($batch as $obj) {
+            $this->assertInstanceOf('\MongoId', $obj->getId());
+        }
+    }
+
+    /**
+     * @depends testInit
+     */
+    public function testBatchInsertWithId()
+    {
+        $batch = [
+            $this->getSimpleObject(),
+            $this->getSimpleObject()
+        ];
+
+        $batch[0]->setId(new \MongoId());
+        $batch[1]->setId(new \MongoId());
+
+        $this->repo->batchPersist($batch);
+    }
+
 }

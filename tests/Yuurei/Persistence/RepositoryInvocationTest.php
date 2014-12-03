@@ -82,4 +82,6 @@ class RepositoryInvocationTest extends RepositoryTestTemplate
         return ['objVar.answer' => 'eureka'];
     }
 
+    
+    
 }
