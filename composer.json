@@ -20,5 +20,10 @@
             "Trismegiste\\Yuurei\\": "src"
         }
     },
-    "license": "CC-BY-SA-3.0"
+    "license": "MIT",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.1.x-dev"
+        }
+    }
 }
