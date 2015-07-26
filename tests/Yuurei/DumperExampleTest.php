@@ -6,9 +6,9 @@
 
 namespace tests\Yuurei;
 
-use Trismegiste\Yuurei\Transform\Delegation\MappingDirector;
+use Trismegiste\Alkahest\Transform\Delegation\MappingDirector;
 use Trismegiste\Yuurei\Transform\Delegation\Stage\Invocation;
-use Trismegiste\Yuurei\Transform\Transformer;
+use Trismegiste\Alkahest\Transform\Transformer;
 
 /**
  * DumperExample gives example of the serializing process

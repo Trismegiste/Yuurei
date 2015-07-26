@@ -6,10 +6,15 @@
 
 namespace Trismegiste\Yuurei\Transform\Delegation\Stage;
 
-use Trismegiste\Yuurei\Transform\Mediator\Mediator;
-use Trismegiste\Yuurei\Transform\Mediator\Colleague;
-use Trismegiste\Yuurei\Transform\Delegation\MappingBuilder;
-use Trismegiste\Yuurei\Transform\Mediator\TypeRegistry;
+use Trismegiste\Alkahest\Transform\Delegation\MappingBuilder;
+use Trismegiste\Alkahest\Transform\Mediator\Colleague\MapArray;
+use Trismegiste\Alkahest\Transform\Mediator\Colleague\MapNullable;
+use Trismegiste\Alkahest\Transform\Mediator\Colleague\MapScalar;
+use Trismegiste\Alkahest\Transform\Transformer;
+use Trismegiste\Yuurei\Transform\Mediator\Colleague\DateObject;
+use Trismegiste\Yuurei\Transform\Mediator\Colleague\MongoInvariant;
+use Trismegiste\Alkahest\Transform\Mediator\Mediator;
+use Trismegiste\Alkahest\Transform\Mediator\TypeRegistry;
 
 /**
  * Design Pattern : Builder
@@ -17,8 +22,6 @@ use Trismegiste\Yuurei\Transform\Mediator\TypeRegistry;
  *
  * This is a template for a builder of delegation of mapping
  * @see Transformer
- *
- * @author flo
  */
 abstract class AbstractStage implements MappingBuilder
 {
@@ -36,9 +39,9 @@ abstract class AbstractStage implements MappingBuilder
      */
     public function createNonObject(TypeRegistry $algo)
     {
-        new Colleague\MapArray($algo);
-        new Colleague\MapScalar($algo);
-        new Colleague\MapNullable($algo);
+        new MapArray($algo);
+        new MapScalar($algo);
+        new MapNullable($algo);
     }
 
     /**
@@ -46,8 +49,8 @@ abstract class AbstractStage implements MappingBuilder
      */
     public function createDbSpecific(TypeRegistry $algo)
     {
-        new Colleague\DateObject($algo);
-        new Colleague\MongoInvariant($algo);
+        new DateObject($algo);
+        new MongoInvariant($algo);
     }
 
     /**

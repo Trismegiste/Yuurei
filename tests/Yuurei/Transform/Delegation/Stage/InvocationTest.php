@@ -7,9 +7,9 @@
 namespace tests\Yuurei\Transform\Delegation\Stage;
 
 use Trismegiste\Yuurei\Transform\Delegation\Stage\Invocation;
-use Trismegiste\Yuurei\Transform\Mediator\Colleague\MapObject;
+use Trismegiste\Alkahest\Transform\Mediator\Colleague\MapObject;
 use tests\Yuurei\Fixtures;
-use Trismegiste\Yuurei\Transform\Mediator\Colleague\PhpCollection;
+use Trismegiste\Alkahest\Transform\Mediator\Colleague\PhpCollection;
 
 /**
  * test for Mediator created by Invocation builder
@@ -178,7 +178,7 @@ class InvocationTest extends AbstractStageTest
         $restore = $this->mediator->recursivCreate($dump);
 
         // SplObjectStorage are not equals since spl_object_hash($obj)
-        // are unique for each Product instances        
+        // are unique for each Product instances
         $this->assertEquals($obj->getIterator()->current(), $restore->getIterator()->current());
         $this->assertEquals($obj->getIterator()->getInfo(), $restore->getIterator()->getInfo());
     }

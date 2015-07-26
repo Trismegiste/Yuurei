@@ -6,8 +6,8 @@
 
 namespace Trismegiste\Yuurei\Transform\Tests;
 
-use Trismegiste\Yuurei\Transform\Transformer;
-use Trismegiste\Yuurei\Transform\Delegation\MappingDirector;
+use Trismegiste\Alkahest\Transform\Transformer;
+use Trismegiste\Alkahest\Transform\Delegation\MappingDirector;
 use Trismegiste\Yuurei\Transform\Delegation\Stage\Invocation;
 use tests\Yuurei\Fixtures\IntoVoid;
 

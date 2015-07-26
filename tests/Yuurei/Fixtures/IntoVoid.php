@@ -6,9 +6,9 @@
 
 namespace tests\Yuurei\Fixtures;
 
-use Trismegiste\Yuurei\Transform\Skippable;
+use Trismegiste\Alkahest\Transform\Skippable;
 
 class IntoVoid implements Skippable
 {
-    
+
 }

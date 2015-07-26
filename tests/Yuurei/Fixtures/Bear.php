@@ -6,7 +6,7 @@
 
 namespace tests\Yuurei\Fixtures;
 
-use Trismegiste\Yuurei\Transform\Cleanable;
+use Trismegiste\Alkahest\Transform\Cleanable;
 
 class Bear implements Cleanable
 {

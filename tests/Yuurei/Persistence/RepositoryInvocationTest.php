@@ -8,7 +8,7 @@ namespace tests\Yuurei\Persistence;
 
 use Trismegiste\Yuurei\Persistence\Repository;
 use tests\Yuurei\Fixtures;
-use Trismegiste\Yuurei\Transform\Mediator\Colleague\MapObject;
+use Trismegiste\Alkahest\Transform\Mediator\Colleague\MapObject;
 
 /**
  * Test repository with Invocation stage
@@ -82,6 +82,6 @@ class RepositoryInvocationTest extends RepositoryTestTemplate
         return ['objVar.answer' => 'eureka'];
     }
 
-    
-    
+
+
 }

@@ -22,10 +22,10 @@ class AbstractProviderTest extends \PHPUnit_Framework_TestCase
                 ->disableOriginalConstructor()
                 ->getMock();
 
-        $mediator = $this->getMock('Trismegiste\Yuurei\Transform\Mediator\AbstractMediator');
-        $tranform = $this->getMock('Trismegiste\Yuurei\Transform\TransformerInterface');
+        $mediator = $this->getMock('Trismegiste\Alkahest\Transform\Mediator\AbstractMediator');
+        $tranform = $this->getMock('Trismegiste\Alkahest\Transform\TransformerInterface');
 
-        $director = $this->getMock('Trismegiste\Yuurei\Transform\Delegation\MappingDirector', array('create'));
+        $director = $this->getMock('Trismegiste\Alkahest\Transform\Delegation\MappingDirector', array('create'));
         $director->expects($this->once())
                 ->method('create')
                 ->will($this->returnValue($mediator));
@@ -38,9 +38,9 @@ class AbstractProviderTest extends \PHPUnit_Framework_TestCase
                 ->method('createTransformer')
                 ->will($this->returnValue($tranform));
 
-        $this->object = $provider; 
+        $this->object = $provider;
         // ouch, it was hard. But I wanted to test all the process with mockup
-        // it is also a good documentation to understand differnece between mediator
+        // it is also a good documentation to understand difference between mediator
         // builder, director, transformer and repository
     }
 
@@ -51,7 +51,7 @@ class AbstractProviderTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateRepository()
     {
-        $builder = $this->getMockForAbstractClass('Trismegiste\Yuurei\Transform\Delegation\Stage\AbstractStage');
+        $builder = $this->getMockForAbstractClass('Trismegiste\Alkahest\Transform\Delegation\Stage\AbstractStage');
         $repo = $this->object->createRepository($builder);
         $this->assertInstanceOf('Trismegiste\Yuurei\Persistence\Repository', $repo);
     }

@@ -6,14 +6,14 @@
 
 namespace Trismegiste\Yuurei\Transform\Delegation\Stage;
 
-use Trismegiste\Yuurei\Transform\Mediator\Colleague;
-use Trismegiste\Yuurei\Transform\Mediator\TypeRegistry;
+use Trismegiste\Alkahest\Transform\Mediator\Colleague;
+use Trismegiste\Alkahest\Transform\Mediator\TypeRegistry;
 
 /**
  * Design Pattern : Builder
- * Component : Builder (concrete) 
- * 
- * A builder to automagically store object in database by using the FQCN 
+ * Component : Builder (concrete)
+ *
+ * A builder to automagically store object in database by using the FQCN
  * for class keys. Zero configuration needed.
  * Only magic for storing the type of object.
  * Warning : Can be very messy in queries

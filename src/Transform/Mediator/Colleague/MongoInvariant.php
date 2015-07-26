@@ -6,13 +6,13 @@
 
 namespace Trismegiste\Yuurei\Transform\Mediator\Colleague;
 
-use Trismegiste\Yuurei\Transform\Mediator\AbstractMapper;
+use Trismegiste\Alkahest\Transform\Mediator\AbstractMapper;
 
 /**
  * MongoInvariant is a mapper to and from Mongo type which does not change
  * between memory and database, like MongoBinData or MongoId.
  * Must be responsible before MapObject to shortcut when in mapToDb
- * 
+ *
  * @author florent
  */
 class MongoInvariant extends AbstractMapper

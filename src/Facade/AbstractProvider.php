@@ -6,9 +6,9 @@
 
 namespace Trismegiste\Yuurei\Facade;
 
-use Trismegiste\Yuurei\Transform\Mediator\RecursiveMapper;
+use Trismegiste\Alkahest\Transform\Mediator\RecursiveMapper;
 use Trismegiste\Yuurei\Persistence\Repository;
-use Trismegiste\Yuurei\Transform\Delegation\MappingBuilder;
+use Trismegiste\Alkahest\Transform\Delegation\MappingBuilder;
 
 /**
  * Design Pattern: Template Method

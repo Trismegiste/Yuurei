@@ -4,13 +4,20 @@
     "type": "library",
     "keywords": ["dbal", "mongodb", "microframework", "odm", "nosql"],
     "authors": [
-    {
-        "name": "Trismegiste"
-    }
+        {
+            "name": "Trismegiste"
+        }
     ],
-   "require": {
+    "repositories": [
+        {
+            "type": "git",
+            "url": "/home/flo/Develop/Alkahest"
+        }
+    ],
+    "require": {
         "php": ">=5.5",
-        "ext-mongo": ">=1.5.0"
+        "ext-mongo": ">=1.5.0",
+        "trismegiste/alkahest": "dev-master"
     },
     "require-dev": {
         "nikic/php-parser": "0.9.x-dev"

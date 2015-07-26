@@ -180,7 +180,7 @@ abstract class RepositoryTestTemplate extends \PHPUnit_Framework_TestCase
                 ->method('findOne')
                 ->will($this->returnValue(array('_id' => $this->getMock('MongoId'))));
 
-        $factory = $this->getMockBuilder('Trismegiste\Yuurei\Transform\Transformer')
+        $factory = $this->getMockBuilder('Trismegiste\Alkahest\Transform\Transformer')
                 ->disableOriginalConstructor()
                 ->getMock();
         $factory->expects($this->once())
@@ -200,7 +200,7 @@ abstract class RepositoryTestTemplate extends \PHPUnit_Framework_TestCase
                 ->disableOriginalConstructor()
                 ->getMock();
 
-        $factory = $this->getMockBuilder('Trismegiste\Yuurei\Transform\Transformer')
+        $factory = $this->getMockBuilder('Trismegiste\Alkahest\Transform\Transformer')
                 ->disableOriginalConstructor()
                 ->getMock();
         $repo = new Repository($collection, $factory);

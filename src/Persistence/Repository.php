@@ -6,7 +6,7 @@
 
 namespace Trismegiste\Yuurei\Persistence;
 
-use Trismegiste\Yuurei\Transform\TransformerInterface;
+use Trismegiste\Alkahest\Transform\TransformerInterface;
 
 /**
  * Repository of mongo document

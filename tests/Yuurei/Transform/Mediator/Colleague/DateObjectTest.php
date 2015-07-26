@@ -7,14 +7,12 @@
 namespace tests\Yuurei\Transform\Mediator\Colleague;
 
 use Trismegiste\Yuurei\Transform\Mediator\Colleague\DateObject;
-use Trismegiste\Yuurei\Transform\Mediator\Colleague\MapObject;
+use Trismegiste\Alkahest\Transform\Mediator\Colleague\MapObject;
 
 /**
  * Test for DateObject
- *
- * @author flo
  */
-class DateObjectTest extends MapperTestTemplate
+class DateObjectTest extends \tests\Alkahest\Transform\Mediator\Colleague\MapperTestTemplate
 {
 
     protected function createMapper()
@@ -55,7 +53,7 @@ class DateObjectTest extends MapperTestTemplate
     /**
      * Logically this case never happen, anyway it's a double check for futher
      * evolution which could break this mapper behavior
-     * 
+     *
      * @expectedException LogicException
      */
     public function testMapMongoDateToDb()

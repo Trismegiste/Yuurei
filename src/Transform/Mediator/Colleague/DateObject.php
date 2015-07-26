@@ -6,7 +6,7 @@
 
 namespace Trismegiste\Yuurei\Transform\Mediator\Colleague;
 
-use Trismegiste\Yuurei\Transform\Mediator\AbstractMapper;
+use Trismegiste\Alkahest\Transform\Mediator\AbstractMapper;
 
 /**
  * DateObject is a transformer \MongoDate <=> DateTime

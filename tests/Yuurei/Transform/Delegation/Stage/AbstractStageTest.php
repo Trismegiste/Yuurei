@@ -6,7 +6,7 @@
 
 namespace tests\Yuurei\Transform\Delegation\Stage;
 
-use Trismegiste\Yuurei\Transform\Delegation\MappingDirector;
+use Trismegiste\Alkahest\Transform\Delegation\MappingDirector;
 
 /**
  * Template test for Mediator created by a builder
@@ -34,7 +34,7 @@ abstract class AbstractStageTest extends \PHPUnit_Framework_TestCase
 
     public function testMediator()
     {
-        $this->assertInstanceOf('Trismegiste\Yuurei\Transform\Mediator\Mediator', $this->mediator);
+        $this->assertInstanceOf('Trismegiste\Alkahest\Transform\Mediator\Mediator', $this->mediator);
     }
 
     protected function getSymetricData()

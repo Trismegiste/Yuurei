@@ -7,19 +7,19 @@
 namespace tests\Yuurei\Transform\Mediator\Colleague;
 
 use Trismegiste\Yuurei\Transform\Mediator\Colleague\MongoInvariant;
-use Trismegiste\Yuurei\Transform\Mediator\Colleague\MapObject;
+use Trismegiste\Alkahest\Transform\Mediator\Colleague\MapObject;
 
 /**
  * Test for MongoInvariant
  *
  * @author flo
  */
-class MongoInvariantTest extends MapperTestTemplate
+class MongoInvariantTest extends \tests\Alkahest\Transform\Mediator\Colleague\MapperTestTemplate
 {
 
     protected function createMapper()
     {
-        $mediator = $this->getMockForAbstractClass('Trismegiste\Yuurei\Transform\Mediator\AbstractMediator');
+        $mediator = $this->getMockForAbstractClass('Trismegiste\Alkahest\Transform\Mediator\AbstractMediator');
         return new MongoInvariant($mediator);
     }
 
