@@ -8,16 +8,10 @@
             "name": "Trismegiste"
         }
     ],
-    "repositories": [
-        {
-            "type": "git",
-            "url": "/home/flo/Develop/Alkahest"
-        }
-    ],
     "require": {
         "php": ">=5.5",
         "ext-mongo": ">=1.5.0",
-        "trismegiste/alkahest": "dev-master"
+        "trismegiste/alkahest": "~2.3"
     },
     "require-dev": {
         "nikic/php-parser": "0.9.x-dev"
