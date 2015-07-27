@@ -124,4 +124,9 @@ class Repository implements RepositoryInterface
         return new CollectionIterator($this->collection->find($query), $this);
     }
 
+    public function delete($id)
+    {
+        $this->collection->remove(['_id' => new \MongoId($id)]);
+    }
+
 }

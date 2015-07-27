@@ -77,4 +77,11 @@ interface RepositoryInterface
      * @param array $batch
      */
     public function batchPersist(array $batch);
+
+    /**
+     * Delete an object from the database for a given primary key
+     *
+     * @param string $id the primary key
+     */
+    public function delete($id);
 }

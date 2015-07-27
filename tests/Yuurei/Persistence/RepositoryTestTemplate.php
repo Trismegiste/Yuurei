@@ -111,6 +111,8 @@ abstract class RepositoryTestTemplate extends \PHPUnit_Framework_TestCase
     {
         $obj = $this->repo->findByPk($pk);
         $this->assertEditedObject($obj);
+
+        return (string) $obj->getId();
     }
 
     abstract public function getComplexObject();
@@ -237,6 +239,16 @@ abstract class RepositoryTestTemplate extends \PHPUnit_Framework_TestCase
         $batch[1]->setId(new \MongoId());
 
         $this->repo->batchPersist($batch);
+    }
+
+    /**
+     * @depends testUpdated
+     */
+    public function testDelete($pk)
+    {
+        $expected = $this->collection->find([])->count() - 1;
+        $this->repo->delete($pk);
+        $this->assertEquals($expected, $this->collection->find([])->count());
     }
 
 }
