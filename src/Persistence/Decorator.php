@@ -54,4 +54,9 @@ abstract class Decorator implements RepositoryInterface
         $this->decorated->batchPersist($batch);
     }
 
+    public function delete($id)
+    {
+        $this->decorated->delete($id);
+    }
+
 }

@@ -14,7 +14,10 @@ use Trismegiste\Alkahest\Transform\TransformerInterface;
 class Repository implements RepositoryInterface
 {
 
+    /** @var \MongoCollection */
     protected $collection;
+
+    /** @var TransformerInterface */
     protected $factory;
 
     public function __construct(\MongoCollection $coll, TransformerInterface $fac)
@@ -124,6 +127,9 @@ class Repository implements RepositoryInterface
         return new CollectionIterator($this->collection->find($query), $this);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public function delete($id)
     {
         $this->collection->remove(['_id' => new \MongoId($id)]);

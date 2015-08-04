@@ -13,11 +13,12 @@ class DecoratorTest extends \PHPUnit_Framework_TestCase
 {
 
     protected $sut;
+    protected $decorated;
 
     protected function setUp()
     {
-        $mock = $this->getMock('Trismegiste\Yuurei\Persistence\RepositoryInterface');
-        $this->sut = $this->getMockForAbstractClass('Trismegiste\Yuurei\Persistence\Decorator', [$mock]);
+        $this->decorated = $this->getMock('Trismegiste\Yuurei\Persistence\RepositoryInterface');
+        $this->sut = $this->getMockForAbstractClass('Trismegiste\Yuurei\Persistence\Decorator', [$this->decorated]);
     }
 
     public function testQuery()
@@ -37,6 +38,14 @@ class DecoratorTest extends \PHPUnit_Framework_TestCase
     public function testBatchPersist()
     {
         $this->sut->batchPersist([]);
+    }
+
+    public function testDelete()
+    {
+        $this->decorated->expects($this->once())
+                ->method('delete');
+
+        $this->sut->delete(123);
     }
 
 }
